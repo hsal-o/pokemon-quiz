@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Who's That Pokémon?</title>
+
+    <link rel="stylesheet" href="resources/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
+
+    <!-- https://github.com/catdad/canvas-confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+    <script src="resources/js/Model.js"></script>
+    <script src="resources/js/View.js"></script>
+    <script src="resources/js/ViewModel.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Who's That Pokémon?</h1>
+        <img id="pokemon-image" class="silhouette" src="" alt="Pokémon Image" draggable="false">
+        <input type="text" id="guess-input" placeholder="Enter Pokémon name..." autocomplete="off">
+        <button id="skip-button">Skip</button>
+    </div>
+
+</body>
+</html>

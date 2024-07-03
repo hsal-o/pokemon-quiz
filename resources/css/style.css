@@ -1,0 +1,49 @@
+body {
+    font-family: "Bree Serif", serif;
+    background: #bbb;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+h1 {
+    font-weight: normal;
+    text-align: center;
+    /* color: white; */
+}
+
+.silhouette {
+    filter: brightness(0);
+}
+
+#pokemon-image {
+    width: 300px;
+    height: auto;
+}
+
+.container {
+    width: 35%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    gap: 10px;
+    background: #ddd;
+}
+
+#guess-input {
+    padding: 12px;
+    font-size: 24px;
+    font-family: "Bree Serif", serif;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+#skip-button {
+    padding: 8px 24px;
+    text-transform: uppercase;
+    font-family: "Bree Serif", serif;
+}
