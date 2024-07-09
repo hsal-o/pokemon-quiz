@@ -5,9 +5,9 @@
     <title>Who's That Pokémon?</title>
 
     <link rel="stylesheet" href="resources/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
 
-    <!-- https://github.com/catdad/canvas-confetti -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 
     <script src="resources/js/Model.js"></script>
@@ -17,11 +17,79 @@
 <body>
 
     <div class="container">
-        <h1>Who's That Pokémon?</h1>
-        <img id="pokemon-image" class="silhouette" src="" alt="Pokémon Image" draggable="false">
-        <input type="text" id="guess-input" placeholder="Enter Pokémon name..." autocomplete="off">
-        <button id="skip-button">Skip</button>
+
+        <div class="left-container">
+            <div class="check-container">
+                <table>
+                    <h6>Generations</h6>
+                    <tr>
+                        <td>
+                            <input type="checkbox" class="btn-check gen-checkbox" id="btn-check-gen1" data-gen="0" checked autocomplete="off">
+                            <label class="btn btn-outline-primary" for="btn-check-gen1">1</label>
+                        </td>
+
+                        <td>
+                            <input type="checkbox" class="btn-check gen-checkbox" id="btn-check-gen2" data-gen="1" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="btn-check-gen2">2</label>
+                        </td>
+
+                        <td>
+                            <input type="checkbox" class="btn-check gen-checkbox" id="btn-check-gen3" data-gen="2" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="btn-check-gen3">3</label>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <input type="checkbox" class="btn-check gen-checkbox" id="btn-check-gen4" data-gen="3" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="btn-check-gen4">4</label>
+                        </td>
+
+                        <td>
+                            <input type="checkbox" class="btn-check gen-checkbox" id="btn-check-gen5" data-gen="4" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="btn-check-gen5">5</label>
+                        </td>
+
+                        <td>
+                            <input type="checkbox" class="btn-check gen-checkbox" id="btn-check-gen6" data-gen="5" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="btn-check-gen6">6</label>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <input type="checkbox" class="btn-check gen-checkbox" id="btn-check-gen7" data-gen="6" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="btn-check-gen7">7</label>
+                        </td>
+
+                        <td>
+                            <input type="checkbox" class="btn-check gen-checkbox" id="btn-check-gen8" data-gen="7" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="btn-check-gen8">8</label>
+                        </td>
+
+                        <td>
+                            <input type="checkbox" class="btn-check gen-checkbox" id="btn-check-gen9" data-gen="8" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="btn-check-gen9">9</label>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="center-container" style="width:35%">
+            <h1>Who's That Pokémon?</h1>
+            <img id="pokemon-image" class="silhouette" src="" alt="Pokémon Image" draggable="false">
+            <input type="text" id="guess-input" placeholder="Enter Pokémon name..." autocomplete="off">
+            <button id="skip-button">Skip</button>
+        </div>
+
+        <div class="right-container">
+            (This side will be added soon)
+        </div>
+
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 
 </body>
 </html>
