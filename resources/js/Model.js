@@ -1,6 +1,11 @@
+EASY = 0;
+MEDIUM = 1;
+HARD = 2;
+
 class Model {
     constructor() {
         this.currentPokemon = null;
+        this.difficulty = EASY;
         
         // List of generations for generation selection handling
         this.generationList = [
@@ -37,6 +42,27 @@ class Model {
         }
     }
 
+    // Method to change difficulty
+    changeDifficulty(difficulty) {
+        this.difficulty = difficulty;
+    }
+
+    // Method to get pokemon sprite depending on difficulty
+    getPokemonSprite(sprite) {
+        let imagePool = [ 
+            sprite.other["official-artwork"].front_default,
+        ];
+
+        if(this.difficulty >= 1) {
+            imagePool.push(sprite.back_default);
+            imagePool.push(sprite.front_default);
+        }
+
+        imagePool = imagePool.filter(img => img != null);
+
+        return imagePool[Math.floor(Math.random() * imagePool.length)];
+    }
+
     // Method that chooses a random pokemon from the available pool of pokemon
     getNewPokemon(callback) {
         // Check if there are any generations selected before continuing
@@ -46,21 +72,35 @@ class Model {
         }
 
         const randomGen = this.availablePokemonGen[Math.floor(Math.random() * this.availablePokemonGen.length)];
-        const randomPokemonId = randomGen[Math.floor(Math.random() * randomGen.length)] - 1;
+        const randomPokemonId = randomGen[Math.floor(Math.random() * randomGen.length)];
+
+        console.log("randomPokemonId:", randomPokemonId);
 
         // Fetch API
         fetch(`https://pokeapi.co/api/v2/pokemon/${randomPokemonId}`)
             .then(response => response.json())
             .then(data => {
                 let name = data.name;
+                
+                // Edge cases for weirdly formatted names
+                // Nidoran gendered names
                 let nonvalidIndex = name.indexOf('-');
                 if(nonvalidIndex != -1){
                     name = name.slice(0, nonvalidIndex);
                 }
 
+                // mr-mime, mr-rime
+                nonvalidIndex = name.indexOf('mr-');
+                if(nonvalidIndex != -1){
+                    name = name.slice(3, name.length);
+                    name = "mr. " + name;
+                }
+
+                let img = this.getPokemonSprite(data.sprites);
+    
                 this.currentPokemon = {
                     name: name,
-                    img: data.sprites.other["official-artwork"].front_default
+                    img: img
                 };
 
                 callback(this.currentPokemon);

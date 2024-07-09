@@ -5,6 +5,7 @@ class View {
         this.guessButton = document.getElementById("guess-button");
         this.skipButton = document.getElementById("skip-button");
         this.genCheckboxes = document.querySelectorAll(".gen-checkbox");
+        this.difficultyButtons = document.querySelectorAll(".difficulty-radio")
     }
 
     // Binder for guess event
@@ -24,6 +25,13 @@ class View {
         })
     }
 
+    // Binder for difficulty radio button
+    bindDifficultyRadio(handler) {
+        this.difficultyButtons.forEach(radio => {
+            radio.addEventListener("change", (event) => handler(event.target.dataset.dif));
+        })
+    }
+
     // Method to update pokemon source image
     updatePokemonImage(src) {
         this.pokemonImage.src = src;
@@ -38,7 +46,7 @@ class View {
         this.guessInput.readOnly  = true;
 
         confetti({
-            particleCount: 50,
+            particleCount: 25,
             spread: 75,
             origin: { y: 0.6 }
         });
@@ -55,6 +63,15 @@ class View {
     // Method to get guess input
     getInput() {
         return this.guessInput.value.trim().toLowerCase();
+    }
+
+    // Methods to manipulate diagonal clipping
+    addDiagonalClip() {
+        this.pokemonImage.classList.add("diagonal-clip");
+    }
+
+    removeDiagonalClip() {
+        this.pokemonImage.classList.remove("diagonal-clip");
     }
 
     // Method for showing error

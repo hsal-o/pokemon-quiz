@@ -25,6 +25,17 @@ document.addEventListener("DOMContentLoaded", () => {
         model.toggleGeneration(parseInt(generationNum), isChecked);
     }
 
+    // Handler function to change difficulty
+    function changeDifficulty(difficulty) {
+        model.changeDifficulty(parseInt(difficulty));
+
+        if(parseInt(difficulty) == 2){
+            view.addDiagonalClip();
+        } else {
+            view.removeDiagonalClip();
+        }
+    }
+
     // Function to initalize generations that have been pre-selected
     function initializeGenerations() {
         view.genCheckboxes.forEach(checkbox => {
@@ -34,12 +45,23 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // Function to initialize difficulty
+    function initializeDifficulty() {
+        view.difficultyButtons.forEach(radio => {
+            if(radio.checked){
+                model.changeDifficulty(parseInt(radio.dataset.dif))
+            }
+        });
+    }
+
     // View bindings
     view.bindGuessEvent(revealPokemon);
     view.bindSkipEvent(resetGame);
     view.bindGenerationToggleEvent(toggleGeneration);
+    view.bindDifficultyRadio(changeDifficulty);
 
     // Preloaded functions
     initializeGenerations();
+    initializeDifficulty();
     resetGame();
 })

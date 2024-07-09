@@ -21,9 +21,16 @@ h1 {
     filter: brightness(0);
 }
 
+.diagonal-clip {
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+
 #pokemon-image {
     width: 300px;
     height: auto;
+    image-rendering: pixelated;
+    /* image-rendering: -moz-crisp-edges; */
+    /* image-rendering: crisp-edges; */
 }
 
 .left-container {
@@ -69,6 +76,13 @@ h1 {
     background: #ddd;
 }
 
+.difficulty-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 #guess-input {
     padding: 12px;
     font-size: 24px;
@@ -79,4 +93,9 @@ h1 {
 #skip-button {
     padding: 8px 24px;
     text-transform: uppercase;
+}
+
+.difficulty-radio + label {
+    width: 100%;
+    margin-bottom: 6px;
 }
